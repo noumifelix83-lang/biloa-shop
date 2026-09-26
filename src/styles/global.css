@@ -2536,3 +2536,332 @@ p {
 .price {
   font-variant-numeric: lining-nums tabular-nums;
 }
+
+/* ───────────────────────────────────────────────
+   Phone refinements — many international customers
+   shop only on phones, often small ones (320–390px).
+   ─────────────────────────────────────────────── */
+
+/* Grid/flex children may shrink below their content (prevents the checkout
+   overflowing because of long country names in the <select>). */
+.checkout-grid > *,
+.checkout-main > *,
+.contact-grid > *,
+.line-info,
+.field,
+.select-wrap select {
+  min-width: 0;
+}
+.select-wrap select {
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+
+/* Respect iPhone notches / home indicator */
+.drawer-foot {
+  padding-bottom: calc(22px + env(safe-area-inset-bottom));
+}
+.mobile-menu-panel {
+  padding-bottom: calc(32px + env(safe-area-inset-bottom));
+}
+
+@media (max-width: 900px) {
+  /* 16px text in form fields stops iOS from zooming in on focus */
+  input,
+  select,
+  textarea,
+  .select-wrap select,
+  .shop-search input {
+    font-size: 16px;
+  }
+  /* Comfortable tap targets (≥ 44px) */
+  .link-btn {
+    min-height: 40px;
+    padding: 0 4px;
+  }
+  .add-btn {
+    min-height: 38px;
+  }
+  .chip {
+    min-height: 42px;
+  }
+  .qty-sm {
+    height: 40px;
+  }
+  .qty-sm button {
+    width: 38px;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Hero: keep the headline and "Shop" button on the first screen */
+  .hero-grid {
+    padding-top: 12px;
+    padding-bottom: 40px;
+    gap: 8px;
+  }
+  .hero-art {
+    width: min(74vw, 38vh);
+    width: min(74vw, 38svh);
+  }
+  .hero-leaf {
+    display: none;
+  }
+  .hero .eyebrow,
+  .hero-points {
+    display: none;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 9.4vw, 2.5rem);
+    margin-bottom: 0.35em;
+  }
+  .hero-lead {
+    font-size: 1rem;
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+  }
+  .hero-ctas {
+    gap: 10px;
+  }
+  .btn-lg {
+    padding: 0.9em 1.4em;
+  }
+
+  /* Scrollable category chips: fade the edge so it's clear there is more */
+  .chips {
+    -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent);
+    mask-image: linear-gradient(90deg, #000 85%, transparent);
+    padding-right: 40px;
+  }
+
+  /* Category cards: bigger product photo */
+  .category-media img {
+    width: 88%;
+  }
+  .category-body {
+    padding: 16px 18px;
+  }
+  .category-body h3 {
+    font-size: 1.35rem;
+  }
+  .category-body p {
+    font-size: 0.88rem;
+    margin-bottom: 0.6em;
+  }
+
+  /* Sections breathe a little less on small screens */
+  .section-head {
+    margin-bottom: 28px;
+  }
+  .meaning,
+  .newsletter {
+    padding: 72px 0;
+  }
+  .page-hero {
+    padding: 28px 0 24px;
+  }
+  .services-hero {
+    min-height: 0;
+  }
+  .services-hero-inner {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .service-card h3 {
+    font-size: 1.7rem;
+  }
+  .service-price {
+    font-size: 2.2rem;
+  }
+  .pdp {
+    gap: 24px;
+  }
+  .pdp-media {
+    border-radius: 20px;
+  }
+  .checkout-title {
+    margin: 4px 0 18px;
+  }
+  .panel-title {
+    font-size: 1.4rem;
+  }
+  .summary-total dd {
+    font-size: 1.55rem;
+  }
+  .ship-option {
+    padding: 14px;
+    gap: 10px;
+  }
+  .footer-brand img {
+    width: 120px;
+  }
+  .site-footer {
+    padding-top: 56px;
+  }
+}
+
+/* Very small phones (older Android, iPhone SE 1st gen) */
+@media (max-width: 380px) {
+  .brand-sub {
+    display: none;
+  }
+  .brand-name {
+    font-size: 1.6rem;
+  }
+  .brand img {
+    width: 40px;
+  }
+  .header-actions .icon-btn,
+  .menu-toggle {
+    width: 40px;
+    height: 40px;
+  }
+  .announcement {
+    font-size: 0.75rem;
+    padding: 7px 10px;
+  }
+  .product-grid {
+    gap: 10px;
+  }
+  .product-card-body {
+    padding: 10px;
+  }
+  .product-card h3 {
+    font-size: 1.05rem;
+  }
+  .product-card-badge {
+    display: none;
+  }
+  .product-card-foot {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .line {
+    grid-template-columns: 56px 1fr;
+  }
+  .line-thumb {
+    width: 56px;
+    height: 56px;
+  }
+  .line-price {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    font-size: 0.95rem;
+  }
+  .line-info {
+    grid-column: 2;
+    grid-row: 1;
+    padding-right: 70px;
+  }
+  .panel {
+    padding: 18px 14px;
+  }
+  .pay-methods span {
+    font-size: 0.66rem;
+    padding: 3px 6px;
+  }
+}
+
+/* Phones held sideways: don't let the hero eat the whole screen */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-art {
+    width: min(40vw, 60vh);
+  }
+  .mobile-menu nav a {
+    font-size: 1.2rem;
+    padding: 6px 0;
+  }
+}
+
+/* Icons inside buttons never get squeezed out */
+.btn svg,
+.add-btn svg,
+.link-btn svg {
+  flex-shrink: 0;
+}
+
+/* Shop toolbar: search shrinks instead of pushing the sort menu off-screen */
+.shop-search,
+.shop-search input {
+  min-width: 0;
+}
+.shop-tools .select-wrap {
+  flex-shrink: 0;
+}
+
+@media (max-width: 380px) {
+  /* Logo sits next to the menu button instead of centered, so it never
+     collides with the search and cart icons */
+  .brand {
+    position: static;
+    transform: none;
+    margin-right: auto;
+  }
+  .btn {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+.sticky-buy .btn {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+@media (max-width: 380px) {
+  .shop-search {
+    padding: 0 10px;
+    gap: 6px;
+  }
+  .shop-tools .select-wrap select {
+    padding: 0 30px 0 12px;
+  }
+  .shop-tools .select-wrap::after {
+    right: 12px;
+  }
+}
+
+.ship-dest small {
+  display: block;
+}
+@media (max-width: 640px) {
+  /* Shipping table becomes one card per destination */
+  .ship-table thead {
+    display: none;
+  }
+  .ship-table tr {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2px 12px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .ship-table tr:last-child {
+    border-bottom: 0;
+  }
+  .ship-table td {
+    padding: 0;
+    border: 0;
+  }
+  .ship-dest {
+    font-weight: 500;
+    color: var(--forest-ink);
+  }
+  .ship-days {
+    grid-row: 2;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  .ship-rate {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    font-weight: 600;
+  }
+  .about-hero {
+    padding: 36px 0;
+  }
+  .about-logo img {
+    max-width: 200px;
+  }
+}

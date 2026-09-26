@@ -7,7 +7,7 @@ import { CheckIcon, GlobeIcon, LockIcon, TruckIcon } from '../components/Icons.j
 import { useCart } from '../context/CartContext.jsx';
 import { CATEGORIES, PRODUCTS, formatPrice, formatPriceExact } from '../data/catalog.js';
 import { FREE_US_SHIPPING_THRESHOLD } from '../data/shipping.js';
-import { usePageMeta } from '../utils.js';
+import { imgSet, usePageMeta } from '../utils.js';
 import NotFound from './NotFound.jsx';
 
 export default function Product() {
@@ -77,7 +77,7 @@ export default function Product() {
 
           <div className="pdp">
             <div className="pdp-media" style={{ '--accent': product.accent }}>
-              <img src={product.image} alt={product.name} width="900" height="900" />
+              <img {...imgSet(product.image)} sizes="(max-width: 900px) 92vw, 560px" alt={product.name} width="900" height="900" />
             </div>
 
             <div className="pdp-info">

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext.jsx';
 import { displayName, formatPrice } from '../data/catalog.js';
+import { imgSet } from '../utils.js';
 import { PlusIcon } from './Icons.jsx';
 
 export default function ProductCard({ product }) {
@@ -8,7 +9,15 @@ export default function ProductCard({ product }) {
   return (
     <article className="product-card">
       <Link to={`/product/${product.id}`} className="product-card-media" style={{ '--accent': product.accent }}>
-        <img src={product.image} alt={product.name} loading="lazy" width="900" height="900" />
+        <img
+          {...imgSet(product.image)}
+          sizes="(max-width: 640px) 46vw, (max-width: 1060px) 31vw, 290px"
+          alt={product.name}
+          loading="lazy"
+          decoding="async"
+          width="900"
+          height="900"
+        />
         {product.badges?.[0] && <span className="product-card-badge">{product.badges[0]}</span>}
       </Link>
       <div className="product-card-body">

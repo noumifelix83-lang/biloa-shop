@@ -5,7 +5,7 @@ import { ArrowRight, CupIcon, GlobeIcon, HeartHandIcon, LeafIcon, TruckIcon } fr
 import { useCart } from '../context/CartContext.jsx';
 import { CATEGORIES, PRODUCTS, SERVICES, formatPrice, getItem } from '../data/catalog.js';
 import { FREE_US_SHIPPING_THRESHOLD } from '../data/shipping.js';
-import { usePageMeta } from '../utils.js';
+import { imgSet, usePageMeta } from '../utils.js';
 
 export default function Home() {
   usePageMeta();
@@ -45,9 +45,9 @@ export default function Home() {
             <div className="hero-arch">
               <span className="hero-arch-line" />
             </div>
-            <img className="hero-main" src="/images/relaxation-tea.webp" alt="" width="900" height="900" fetchpriority="high" />
-            <img className="hero-side hero-side-left" src="/images/lavender-eucalyptus-oil.webp" alt="" width="900" height="900" />
-            <img className="hero-side hero-side-right" src="/images/gua-sha.webp" alt="" width="900" height="900" />
+            <img className="hero-main" {...imgSet('/images/relaxation-tea.webp')} sizes="(max-width: 640px) 56vw, 380px" alt="" width="900" height="900" fetchpriority="high" />
+            <img className="hero-side hero-side-left" src="/images/lavender-eucalyptus-oil-sm.webp" alt="" width="450" height="450" />
+            <img className="hero-side hero-side-right" src="/images/gua-sha-sm.webp" alt="" width="450" height="450" />
             <span className="hero-leaf hero-leaf-1" />
             <span className="hero-leaf hero-leaf-2" />
           </div>
@@ -75,7 +75,7 @@ export default function Home() {
             {CATEGORIES.map((c) => (
               <Link key={c.id} to={`/shop?category=${c.id}`} className={`category-card cat-${c.id}`}>
                 <div className="category-media">
-                  <img src={c.image} alt="" loading="lazy" />
+                  <img {...imgSet(c.image)} sizes="(max-width: 900px) 34vw, 300px" alt="" loading="lazy" decoding="async" />
                 </div>
                 <div className="category-body">
                   <h3>{c.name}</h3>
@@ -131,7 +131,7 @@ export default function Home() {
       <section className="section">
         <div className="container feature">
           <div className="feature-media" style={{ '--accent': relax.accent }}>
-            <img src={relax.image} alt={relax.name} loading="lazy" />
+            <img {...imgSet(relax.image)} sizes="(max-width: 900px) 80vw, 480px" alt={relax.name} loading="lazy" decoding="async" />
           </div>
           <div className="feature-copy">
             <p className="eyebrow">Tea ritual</p>
@@ -182,7 +182,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="coaching-media">
-            <img src="/images/coaching.webp" alt="A calm table with herbal tea, a healthy bowl and an open journal" loading="lazy" />
+            <img {...imgSet('/images/coaching.webp', { small: 800, large: 1448 })} sizes="(max-width: 900px) 100vw, 640px" alt="A calm table with herbal tea, a healthy bowl and an open journal" loading="lazy" />
           </div>
         </div>
       </section>

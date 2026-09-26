@@ -49,14 +49,14 @@ export default function Faq() {
               <tbody>
                 {rows.map(([label, o, note]) => (
                   <tr key={label}>
-                    <td>{label}</td>
-                    <td>
+                    <td className="ship-dest">
+                      {label}
+                      {note && <small>{note}</small>}
+                    </td>
+                    <td className="ship-days">
                       {o.days[0]}–{o.days[1]} business days
                     </td>
-                    <td>
-                      {formatPriceExact(o.amount)}
-                      {note && <small> · {note}</small>}
-                    </td>
+                    <td className="ship-rate">{formatPriceExact(o.amount)}</td>
                   </tr>
                 ))}
               </tbody>

@@ -7,7 +7,7 @@ import { useCart } from '../context/CartContext.jsx';
 import { displayName, formatPriceExact } from '../data/catalog.js';
 import { ALL_COUNTRIES, findShippingOption, shippingOptions } from '../data/shipping.js';
 import { STORE } from '../config.js';
-import { usePageMeta } from '../utils.js';
+import { smallImage, usePageMeta } from '../utils.js';
 
 const COUNTRY_KEY = 'biloa-country';
 
@@ -106,7 +106,7 @@ export default function Checkout() {
                 {lines.map(({ id, qty, item, total: lineTotal }) => (
                   <li key={id} className="line">
                     <span className="line-thumb" style={{ background: item.accent || 'var(--sage-soft)' }}>
-                      {item.image ? <img src={item.image} alt="" /> : <img src="/images/emblem.png" alt="" className="line-emblem" />}
+                      {item.image ? <img src={smallImage(item.image)} alt="" /> : <img src="/images/emblem.png" alt="" className="line-emblem" />}
                     </span>
                     <div className="line-info">
                       <p className="line-name">

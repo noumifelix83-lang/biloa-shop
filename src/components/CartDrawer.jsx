@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext.jsx';
 import { displayName, formatPriceExact, PRODUCTS } from '../data/catalog.js';
 import FreeShippingMeter from './FreeShippingMeter.jsx';
+import { smallImage } from '../utils.js';
 import QtyPicker from './QtyPicker.jsx';
 import { CloseIcon, LockIcon, PlusIcon } from './Icons.jsx';
 
@@ -54,7 +55,7 @@ export default function CartDrawer() {
               {lines.map(({ id, qty, item, total }) => (
                 <li key={id} className="line">
                   <Link to={item.type === 'product' ? `/product/${id}` : '/services'} onClick={closeDrawer} className="line-thumb" style={{ background: item.accent || 'var(--sage-soft)' }}>
-                    {item.image ? <img src={item.image} alt="" /> : <img src="/images/emblem.png" alt="" className="line-emblem" />}
+                    {item.image ? <img src={smallImage(item.image)} alt="" /> : <img src="/images/emblem.png" alt="" className="line-emblem" />}
                   </Link>
                   <div className="line-info">
                     <p className="line-name">{displayName(item)}</p>
@@ -81,7 +82,7 @@ export default function CartDrawer() {
                 {suggestions.map((p) => (
                   <div key={p.id} className="suggest-row">
                     <span className="suggest-thumb" style={{ background: p.accent }}>
-                      <img src={p.image} alt="" />
+                      <img src={smallImage(p.image)} alt="" />
                     </span>
                     <span className="suggest-name">
                       {displayName(p)}

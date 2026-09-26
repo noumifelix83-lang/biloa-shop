@@ -1,6 +1,14 @@
 import { useEffect } from 'react';
 import { STORE } from './config.js';
 
+// Every photo in public/images has a lighter "-sm" copy (450px for products,
+// 800px for lifestyle photos) so phones on slow connections download less.
+export const smallImage = (src) => src.replace('.webp', '-sm.webp');
+
+export function imgSet(src, { small = 450, large = 900 } = {}) {
+  return { src: smallImage(src), srcSet: `${smallImage(src)} ${small}w, ${src} ${large}w` };
+}
+
 export function usePageMeta(title, description) {
   useEffect(() => {
     document.title = title ? `${title} | ${STORE.shortName} Holistic Care & Wellness` : `${STORE.name} | Herbal Teas, Botanical Oils & Wellness Coaching`;

@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { CalendarIcon, CheckIcon } from '../components/Icons.jsx';
 import { useCart } from '../context/CartContext.jsx';
 import { SERVICES, formatPrice } from '../data/catalog.js';
-import { usePageMeta } from '../utils.js';
+import { imgSet, usePageMeta } from '../utils.js';
 
 const STEPS = [
   { title: 'Choose your package', text: 'Pick the level of support that fits your goals, schedule and budget.' },
@@ -24,7 +24,7 @@ export default function Services() {
   return (
     <>
       <section className="services-hero">
-        <img src="/images/coaching.webp" alt="" className="services-hero-bg" />
+        <img {...imgSet('/images/coaching.webp', { small: 800, large: 1448 })} sizes="100vw" alt="" className="services-hero-bg" />
         <div className="container services-hero-inner">
           <p className="eyebrow eyebrow-light">Wellness coaching</p>
           <h1>Personalized support for a more balanced life</h1>
@@ -105,7 +105,7 @@ export default function Services() {
       <section className="section">
         <div className="container expect">
           <div className="expect-media">
-            <img src="/images/holistic-living.webp" alt="An organized pantry with glass jars of grains and baskets of fresh produce" loading="lazy" />
+            <img {...imgSet('/images/holistic-living.webp', { small: 800, large: 1448 })} sizes="(max-width: 900px) 100vw, 580px" alt="An organized pantry with glass jars of grains and baskets of fresh produce" loading="lazy" />
           </div>
           <div>
             <p className="eyebrow">What you can expect</p>
