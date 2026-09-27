@@ -27,7 +27,7 @@ export default function Services() {
         <img {...imgSet('/images/coaching.webp', { small: 800, large: 1448 })} sizes="100vw" alt="" className="services-hero-bg" />
         <div className="container services-hero-inner">
           <p className="eyebrow eyebrow-light">Wellness coaching</p>
-          <h1>Personalized support for a more balanced life</h1>
+          <h1>Personalized support for a more holistic life</h1>
           <p>
             Nutrition education, meal-planning support and wellness coaching that respects your culture, preferences, schedule and budget — so
             healthy choices feel manageable, not overwhelming.
@@ -42,7 +42,7 @@ export default function Services() {
         <div className="container">
           <div className="section-head">
             <p className="eyebrow">Coaching packages</p>
-            <h2>Find the support that fits you</h2>
+            <h2>Find the support that fits your needs</h2>
           </div>
           <div className="service-grid">
             {SERVICES.map((s) => (

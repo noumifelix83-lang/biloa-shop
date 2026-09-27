@@ -127,8 +127,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Holistic health, reimagined ────────────── */}
+      <section className="section reimagined">
+        <div className="container reimagined-grid">
+          <div className="reimagined-media">
+            <img
+              {...imgSet('/images/sunlit-rest.webp', { small: 600, large: 1122 })}
+              sizes="(max-width: 900px) 92vw, 520px"
+              alt="A woman sitting at ease on the floor of a calm, sunlit room"
+              width="1122"
+              height="1402"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div className="reimagined-copy">
+            <p className="eyebrow">Our approach</p>
+            <h2>Holistic health, reimagined</h2>
+            <p>
+              We see health and wellness as more than a number on a scale, a restrictive eating plan, or a collection of occasional self-care
+              activities. We believe wellness is an ongoing relationship with the whole person — body, mind, environment, culture, relationships,
+              and everyday life.
+            </p>
+            <p>
+              We help you introduce healthier foods, routines, and activities gradually, allowing your palate, digestive system, and everyday life
+              time to adjust.
+            </p>
+            <p className="reimagined-quote">Your journey is personal. Your pace is valid. Your progress is meaningful.</p>
+            <Link to="/about#approach" className="text-link">
+              Our mission &amp; values <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── Feature: Relaxation Tea ────────────────── */}
-      <section className="section">
+      <section className="section section-tint">
         <div className="container feature">
           <div className="feature-media" style={{ '--accent': relax.accent }}>
             <img {...imgSet(relax.image)} sizes="(max-width: 900px) 80vw, 480px" alt={relax.name} loading="lazy" decoding="async" />
@@ -158,7 +192,7 @@ export default function Home() {
       </section>
 
       {/* ── Coaching ───────────────────────────────── */}
-      <section className="section section-tint">
+      <section className="section">
         <div className="container coaching">
           <div className="coaching-copy">
             <p className="eyebrow">Wellness coaching</p>
