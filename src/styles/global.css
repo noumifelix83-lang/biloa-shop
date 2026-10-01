@@ -3535,3 +3535,7 @@ p {
 .meaning:has(.meaning-long)::before {
   display: none;
 }
+
+.nowrap {
+  white-space: nowrap;
+}

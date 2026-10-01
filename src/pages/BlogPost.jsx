@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import PostCard from '../components/PostCard.jsx';
 import { ArrowRight } from '../components/Icons.jsx';
-import { POSTS, getPost, readingMinutes } from '../data/blog.js';
+import { POSTS, formatPostDate, getPost, readingMinutes } from '../data/blog.js';
 import { imgSet, usePageMeta } from '../utils.js';
 import NotFound from './NotFound.jsx';
 
@@ -80,7 +80,10 @@ export default function BlogPost() {
             <h1>{post.title}</h1>
             <p className="post-byline">
               <img src="/images/emblem.png" alt="" width="36" height="25" />
-              By Dr. Paola Biloa Njandja · {readingMinutes(post)} min read
+              <span>
+                By Dr. Paola Biloa Njandja · <time dateTime={post.date} className="nowrap">{formatPostDate(post.date)}</time> ·{' '}
+                <span className="nowrap">{readingMinutes(post)} min read</span>
+              </span>
             </p>
           </div>
           <div className="container post-cover">

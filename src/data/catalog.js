@@ -244,7 +244,7 @@ export const SERVICES = [
     group: 'session',
     name: 'Nutrition & Wellness Consultation',
     price: 9500,
-    duration: 'Single session',
+    duration: '60-minute session',
     summary:
       'At Biloa Holistic Care & Wellness, we begin where you are and build a wellness routine that works for your life. Through a personalized conversation about your eating habits, lifestyle, goals, and challenges, we help you identify meaningful opportunities for change.',
     includesTitle: 'You’ll leave with',

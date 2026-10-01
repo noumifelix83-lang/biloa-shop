@@ -7,6 +7,7 @@ export const POSTS = [
   {
     slug: 'who-would-have-thought',
     title: 'Who Would Have Thought?',
+    date: '2026-10-01',
     excerpt:
       'Kimchi, seaweed, olives, pickles, pomegranate, and kiwi were not foods I once imagined choosing intentionally — much less discussing as part of my wellness journey.',
     cover: '/images/blog/who-would-have-thought.webp',
@@ -145,6 +146,7 @@ export const POSTS = [
   {
     slug: 'tomato-bell-pepper-beet-drink',
     title: 'Tomato, Bell Pepper, and Beet Drink: Colorful Nourishment in a Glass',
+    date: '2026-10-01',
     excerpt:
       'Who would have thought I would be sipping a blend of tomatoes, red bell peppers, and beets — and genuinely enjoying it? Not me — not in a million years!',
     cover: '/images/blog/tomato-pepper-beet-drink.webp',
@@ -313,6 +315,17 @@ export const POSTS = [
 
 export function getPost(slug) {
   return POSTS.find((p) => p.slug === slug);
+}
+
+// "2026-10-01" -> "October 1, 2026" (read as a calendar date, so no time-zone shift)
+export function formatPostDate(iso) {
+  const [y, m, d] = iso.split('-').map(Number);
+  return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  });
 }
 
 export function readingMinutes(post) {

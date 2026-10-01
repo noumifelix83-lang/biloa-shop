@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { readingMinutes } from '../data/blog.js';
+import { formatPostDate, readingMinutes } from '../data/blog.js';
 import { imgSet } from '../utils.js';
 import { ArrowRight } from './Icons.jsx';
 
@@ -19,7 +19,7 @@ export default function PostCard({ post }) {
       </Link>
       <div className="post-card-body">
         <p className="post-meta">
-          {post.tags[0]} · {readingMinutes(post)} min read
+          <time dateTime={post.date}>{formatPostDate(post.date)}</time> · {readingMinutes(post)} min read
         </p>
         <h3>
           <Link to={`/blog/${post.slug}`}>{post.title}</Link>
