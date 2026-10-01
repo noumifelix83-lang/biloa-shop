@@ -9,7 +9,8 @@ export const STORE = {
   tagline: 'Rooted in nature. Grown with intention.',
   location: 'Pasadena, Maryland',
   email: 'hello@biloaholisticcare.com', // TODO: replace with your real email
-  phone: '', // optional, e.g. '(410) 555-0123'
+  phone: '(410) 938-9664',
+  phoneHref: 'tel:+14109389664',
   social: {
     instagram: '', // e.g. 'https://instagram.com/biloawellness'
     facebook: '',

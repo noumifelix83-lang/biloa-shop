@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { STORE } from '../config.js';
-import { FacebookIcon, InstagramIcon, MailIcon, PinIcon } from './Icons.jsx';
+import { FacebookIcon, InstagramIcon, MailIcon, PhoneIcon, PinIcon } from './Icons.jsx';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -52,6 +52,9 @@ export default function Footer() {
           </ul>
           <ul className="footer-contact">
             <li><MailIcon size={16} /> <a href={`mailto:${STORE.email}`}>{STORE.email}</a></li>
+            {STORE.phone && (
+              <li><PhoneIcon size={16} /> <a href={STORE.phoneHref}>{STORE.phone}</a></li>
+            )}
             <li><PinIcon size={16} /> {STORE.location}</li>
           </ul>
         </div>

@@ -35,6 +35,12 @@ export default function OrderConfirmed() {
         )}
         <p className="muted">
           Questions about your order? Email <a href={`mailto:${STORE.email}`}>{STORE.email}</a>
+          {STORE.phone && (
+            <>
+              {' '}
+              or call <a href={STORE.phoneHref}>{STORE.phone}</a>
+            </>
+          )}
         </p>
         <div className="hero-ctas center">
           <Link to="/shop" className="btn btn-primary btn-lg">

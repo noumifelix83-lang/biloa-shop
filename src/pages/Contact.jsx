@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { MailIcon, PinIcon } from '../components/Icons.jsx';
+import { MailIcon, PhoneIcon, PinIcon } from '../components/Icons.jsx';
 import { STORE } from '../config.js';
 import { SERVICES } from '../data/catalog.js';
 import { submitForm, usePageMeta } from '../utils.js';
@@ -97,6 +97,15 @@ export default function Contact() {
                 <a href={`mailto:${STORE.email}`}>{STORE.email}</a>
               </div>
             </div>
+            {STORE.phone && (
+              <div className="contact-item">
+                <PhoneIcon />
+                <div>
+                  <h3>Phone</h3>
+                  <a href={STORE.phoneHref}>{STORE.phone}</a>
+                </div>
+              </div>
+            )}
             <div className="contact-item">
               <PinIcon />
               <div>

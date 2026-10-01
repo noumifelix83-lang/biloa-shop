@@ -92,6 +92,9 @@ export const MailIcon = make(
     <path d="m4 7 8 6 8-6" />
   </>,
 );
+export const PhoneIcon = make(
+  <path d="M6.6 3.5h2.6l1.4 4-2 1.3a11 11 0 0 0 6.6 6.6l1.3-2 4 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z" />,
+);
 export const PinIcon = make(
   <>
     <path d="M12 21s-6.5-5.8-6.5-11a6.5 6.5 0 0 1 13 0c0 5.2-6.5 11-6.5 11Z" />
