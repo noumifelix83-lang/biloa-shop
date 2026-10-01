@@ -12,6 +12,7 @@ const NAV = [
   { to: '/shop?category=bath-skin', label: 'Bath & Skin' },
   { to: '/services', label: 'Wellness Coaching' },
   { to: '/about', label: 'Our Story' },
+  { to: '/blog', label: 'Blog' },
 ];
 
 export default function Header() {
@@ -53,6 +54,7 @@ export default function Header() {
 
   const isActive = (to) => {
     const [path, qs] = to.split('?');
+    if (path === '/blog') return location.pathname.startsWith('/blog');
     if (location.pathname !== path) return false;
     const current = new URLSearchParams(location.search).get('category');
     const target = new URLSearchParams(qs || '').get('category');

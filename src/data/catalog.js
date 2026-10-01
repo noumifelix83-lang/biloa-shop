@@ -239,8 +239,43 @@ export const PRODUCTS = [
 
 export const SERVICES = [
   {
+    id: 'nutrition-wellness-consultation',
+    type: 'service',
+    group: 'session',
+    name: 'Nutrition & Wellness Consultation',
+    price: 9500,
+    duration: 'Single session',
+    summary:
+      'At Biloa Holistic Care & Wellness, we begin where you are and build a wellness routine that works for your life. Through a personalized conversation about your eating habits, lifestyle, goals, and challenges, we help you identify meaningful opportunities for change.',
+    includesTitle: 'You’ll leave with',
+    includes: [
+      'Practical nutrition education',
+      'Realistic guidance',
+      'Clear next steps for creating a more balanced and intentional everyday routine',
+    ],
+  },
+  {
+    id: 'wellness-coaching-session',
+    type: 'service',
+    group: 'session',
+    name: 'Health and Wellness Coaching',
+    price: 8500,
+    duration: 'Single session',
+    summary:
+      'Receive personalized encouragement, accountability, and practical support as you work toward your wellness goals.',
+    includesTitle: 'Coaching may focus on',
+    includes: [
+      'Nutrition and hydration',
+      'Movement and sleep',
+      'Stress management',
+      'Goal-setting',
+      'Other everyday habits that contribute to a more balanced lifestyle',
+    ],
+  },
+  {
     id: 'wellness-foundations',
     type: 'service',
+    group: 'package',
     name: 'Wellness Foundations',
     price: 29500,
     headline: 'Build a stronger foundation for everyday wellness',
@@ -260,6 +295,7 @@ export const SERVICES = [
   {
     id: 'holistic-living',
     type: 'service',
+    group: 'package',
     name: 'Holistic Living',
     price: 42500,
     headline: 'Create routines that work with your life',
@@ -280,6 +316,7 @@ export const SERVICES = [
   {
     id: 'three-month-partnership',
     type: 'service',
+    group: 'package',
     name: 'Three-Month Wellness Partnership',
     price: 79500,
     headline: 'Personalized support for meaningful, sustainable change',
@@ -299,6 +336,7 @@ export const SERVICES = [
   {
     id: 'meal-prep-support',
     type: 'service',
+    group: 'session',
     name: 'Holistic Meal Prep Support',
     price: 9500,
     headline: 'Take the stress out of deciding what to eat',
@@ -306,7 +344,7 @@ export const SERVICES = [
     summary:
       'Together, we will develop practical meal ideas, organize grocery lists, simplify food preparation, and create balanced routines that reflect your preferences, schedule, budget, and general wellness goals.',
     includes: [
-      'Practical meal ideas tailored to you',
+      'Practical meal ideas tailored to your needs',
       'Organized grocery lists',
       'Simplified food-preparation plan',
       'Balanced routines that fit your schedule and budget',

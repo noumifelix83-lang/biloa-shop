@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import ProductCard from '../components/ProductCard.jsx';
 import Newsletter from '../components/Newsletter.jsx';
+import PostCard from '../components/PostCard.jsx';
+import { POSTS } from '../data/blog.js';
 import { ArrowRight, CupIcon, GlobeIcon, HeartHandIcon, LeafIcon, TruckIcon } from '../components/Icons.jsx';
 import { useCart } from '../context/CartContext.jsx';
 import { CATEGORIES, PRODUCTS, SERVICES, formatPrice, getItem } from '../data/catalog.js';
@@ -118,8 +120,8 @@ export default function Home() {
             <span className="meaning-big">Biloa</span> means <em>grass</em>.
           </blockquote>
           <p className="meaning-text">
-            Grass represents nourishment, resilience, renewal and connection to the earth. It bends without losing its roots, adapts to changing
-            conditions, and returns after difficult seasons.
+            To us, grass represents nourishment, resilience, renewal, and a deep connection to the earth. It bends without losing its roots, adapts
+            to changing conditions, and continues to grow — even after difficult seasons.
           </p>
           <Link to="/about" className="btn btn-gold">
             Read our story
@@ -145,7 +147,7 @@ export default function Home() {
             <p className="eyebrow">Our approach</p>
             <h2>Holistic health, reimagined</h2>
             <p>
-              We see health and wellness as more than a number on a scale, a restrictive eating plan, or a collection of occasional self-care
+              We see health and wellness as more than a number on a scale, a restrictive diet plan, or a collection of occasional self-care
               activities. We believe wellness is an ongoing relationship with the whole person — body, mind, environment, culture, relationships,
               and everyday life.
             </p>
@@ -202,7 +204,7 @@ export default function Home() {
               unrealistic expectations. You'll be heard, respected and supported without judgment.
             </p>
             <ul className="service-mini-list">
-              {SERVICES.map((s) => (
+              {SERVICES.filter((s) => s.group === 'package').map((s) => (
                 <li key={s.id}>
                   <Link to={`/services#${s.id}`}>
                     <span>{s.name}</span>
@@ -210,6 +212,14 @@ export default function Home() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link to="/services#sessions">
+                  <span>Single sessions</span>
+                  <span className="service-mini-price">
+                    <small>from</small> {formatPrice(Math.min(...SERVICES.filter((s) => s.group === 'session').map((s) => s.price)))}
+                  </span>
+                </Link>
+              </li>
             </ul>
             <Link to="/services" className="btn btn-primary">
               Explore packages <ArrowRight size={18} />
@@ -217,6 +227,26 @@ export default function Home() {
           </div>
           <div className="coaching-media">
             <img {...imgSet('/images/coaching.webp', { small: 800, large: 1448 })} sizes="(max-width: 900px) 100vw, 640px" alt="A calm table with herbal tea, a healthy bowl and an open journal" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      {/* ── Blog ───────────────────────────────────── */}
+      <section className="section section-tint">
+        <div className="container">
+          <div className="section-head section-head-row">
+            <div>
+              <p className="eyebrow">From the blog</p>
+              <h2>Read the latest</h2>
+            </div>
+            <Link to="/blog" className="text-link">
+              All articles <ArrowRight size={16} />
+            </Link>
+          </div>
+          <div className="post-grid">
+            {POSTS.slice(0, 2).map((p) => (
+              <PostCard key={p.slug} post={p} />
+            ))}
           </div>
         </div>
       </section>

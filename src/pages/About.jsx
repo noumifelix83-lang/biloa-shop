@@ -8,6 +8,8 @@ const CREDENTIALS = [
   'Certified Nutrition & Wellness Consultant',
   'Holistic Nutritionist',
   'Certified Health & Wellness Coach',
+  'Certified Weight Management Specialist',
+  'Certified Sports Nutrition Consultant',
   'Certified Safety Professional',
   'Construction Health and Safety Technician',
 ];
@@ -91,7 +93,8 @@ export default function About() {
             <p className="about-role">Wellness is not simply something I schedule — it is part of how I live.</p>
             <p className="about-lead">
               Welcome — I’m Dr. Njandja, founder of Biloa Holistic Care &amp; Wellness. I hold a Doctorate in Occupational Safety and Health and
-              certifications as a Nutrition &amp; Wellness Consultant, Holistic Nutritionist, and Health &amp; Wellness Coach.
+              certifications as a Nutrition &amp; Wellness Consultant, Holistic Nutritionist, Health &amp; Wellness Coach, Weight Management
+              Specialist, and Sports Nutrition Consultant.
             </p>
             <p className="about-lead">
               I believe that we are holistic beings. Our physical health, emotional well-being, environments, relationships, and daily habits are
@@ -148,11 +151,33 @@ export default function About() {
           <blockquote>
             <span className="meaning-big">Biloa</span> means <em>grass</em>.
           </blockquote>
-          <p className="meaning-text">
-            To me, grass represents nourishment, resilience, renewal, and connection to the earth. It bends without losing its roots, adapts to
-            changing conditions, and returns after difficult seasons. That meaning reflects the spirit of Biloa: creating space for people to grow,
-            reconnect with themselves, and develop wellness practices that can evolve with their lives.
-          </p>
+          <div className="meaning-long">
+            <p className="meaning-text">
+              To us, grass represents nourishment, resilience, renewal, and a deep connection to the earth. It bends without losing its roots,
+              adapts to changing conditions, and continues to grow — even after difficult seasons.
+            </p>
+            <p>
+              Grass responds differently as the seasons change. It may flourish in warmth, slow its growth during colder months, or appear dormant
+              when conditions become harsh. Yet beneath the surface, its roots remain present, conserving strength and preparing for renewal. With
+              time, nourishment, and the right environment, it rises again.
+            </p>
+            <p>
+              Our lives move through seasons, too. Changes in health, work, relationships, motherhood, stress, aging, and personal responsibilities
+              can affect how we eat, sleep, move, think, and care for ourselves. During challenging periods, growth may look different or feel less
+              visible — but that does not mean it has stopped. Sometimes wellness means flourishing, while at other times it means resting,
+              adapting, rebuilding, or simply remaining rooted.
+            </p>
+            <p>
+              This is the spirit of Biloa Holistic Care &amp; Wellness. We help you recognize your current season, reconnect with your needs, and
+              develop realistic wellness practices that can evolve with your life. Through personalized education, practical guidance,
+              encouragement, and thoughtfully selected products, we support you in creating a stronger foundation for lasting well-being.
+            </p>
+            <p className="meaning-close">
+              Like grass, you do not have to remain unshaken by difficult conditions to be resilient. You can bend, rest, adapt, and still rise
+              again. At Biloa, your wellness journey is not about perfection — it is about remaining connected to your roots and continuing to grow,
+              regardless of the season.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -162,24 +187,24 @@ export default function About() {
           <div>
             <h2>Why I created Biloa</h2>
             <p>
-              I created Biloa because wellness guidance can sometimes feel restrictive, overwhelming, or disconnected from everyday realities. I
-              wanted to offer a more welcoming approach — one that respects education, culture, personal preferences, self-awareness, and practical
-              choices.
+              I created Biloa because wellness guidance can sometimes feel restrictive, overwhelming, or disconnected from the realities of everyday
+              life. I wanted to offer a more welcoming and personalized approach — one that values education, culture, personal preferences,
+              self-awareness, and practical choices.
             </p>
             <p>
-              Through nutrition education, meal-planning support, wellness coaching, educational resources, and thoughtfully selected products, I
-              help individuals make informed choices that fit their goals, schedules, budgets, cultures, and seasons of life.
+              Through nutrition education, meal-planning support, wellness coaching, accessible resources, and thoughtfully selected products, I help
+              individuals make informed choices that reflect their goals, schedules, budgets, cultural traditions, and changing seasons of life.
             </p>
             <p>
-              I believe holistic living is about more than weight loss. If weight wellness is one of your goals, the journey should not be rooted in
-              shame, punishment, or constant stress. Caring for yourself is an act of self-love and a recognition that your health, needs, and
-              well-being matter.
+              I believe holistic living is about far more than weight loss. If weight wellness is one of your goals, your journey should not be
+              driven by shame, punishment, deprivation, or constant stress. It should be supported by patience, balance, and sustainable choices.
+              Caring for yourself is an act of self-love — and a recognition that your health, your needs, and your overall well-being matter.
             </p>
           </div>
           <div>
             <h2>What you can expect</h2>
             <p>
-              When you work with me, you can expect to be heard, respected, and supported without judgment. I provide practical education,
+              When you work with us, you can expect to be heard, respected, and supported without judgment. We provide practical education,
               encouragement, and accountability to help you create balanced habits that feel realistic and sustainable.
             </p>
             <p>
@@ -192,14 +217,13 @@ export default function About() {
             </p>
             <p className="scope-note">
               Biloa does not diagnose or treat medical or mental-health conditions, including anxiety, depression, digestive disorders, or food
-              allergies. When your needs extend beyond general wellness education and coaching, I will encourage you to seek care from an
+              allergies. When your needs extend beyond general wellness education and coaching, we will encourage you to seek care from an
               appropriately licensed professional.
             </p>
             <p>
-              If you are ready to begin or continue your wellness journey, I would be honored to support you in creating a path that feels informed,
-              intentional, and uniquely yours.
+              If you are ready to begin or continue your wellness journey, we will be honored to support you in creating a path that feels
+              informed, intentional, and uniquely yours.
             </p>
-            <p className="expect-sign">— Dr. Paola Biloa Njandja</p>
           </div>
         </div>
       </section>
@@ -213,7 +237,7 @@ export default function About() {
           </div>
           <div className="prose prose-center">
             <p>
-              At Biloa Holistic Care &amp; Wellness, we see health and wellness as more than a number on a scale, a restrictive eating plan, or a
+              At Biloa Holistic Care &amp; Wellness, we see health and wellness as more than a number on a scale, a restrictive diet plan, or a
               collection of occasional self-care activities. We believe wellness is an ongoing relationship with the whole person — body, mind,
               environment, culture, relationships, and everyday life.
             </p>

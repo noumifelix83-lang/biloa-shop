@@ -12,6 +12,8 @@ import Checkout from './pages/Checkout.jsx';
 import OrderConfirmed from './pages/OrderConfirmed.jsx';
 import Contact from './pages/Contact.jsx';
 import Faq from './pages/Faq.jsx';
+import Blog from './pages/Blog.jsx';
+import BlogPost from './pages/BlogPost.jsx';
 import NotFound from './pages/NotFound.jsx';
 
 function ScrollToTop() {
@@ -42,6 +44,8 @@ export default function App() {
           <Route path="/order-confirmed" element={<OrderConfirmed />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<Faq />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

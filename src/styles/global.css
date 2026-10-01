@@ -3236,3 +3236,302 @@ p {
     text-align: left;
   }
 }
+
+/* ───────────────────────────────────────────────
+   Services: packages vs. single sessions
+   ─────────────────────────────────────────────── */
+.service-group-title {
+  font-size: 1.9rem;
+  margin: 8px 0 4px;
+}
+.service-group-title:not(:first-of-type) {
+  margin-top: 64px;
+}
+.service-group-sub {
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+.service-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.service-grid-3 .service-card {
+  padding: 30px 26px 26px;
+}
+.service-grid-3 .service-card h3 {
+  font-size: 1.65rem;
+}
+.service-mini-price small {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin-right: 2px;
+}
+
+/* About: longer "Biloa means grass" text */
+.meaning-long {
+  text-align: left;
+}
+.meaning-long .meaning-text {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #e7ede2;
+}
+.meaning-long p:not(.meaning-text) {
+  color: #cfdac9;
+  line-height: 1.75;
+}
+.meaning-close {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  line-height: 1.45;
+  color: #fff !important;
+  text-align: center;
+  border-top: 1px solid rgba(212, 174, 90, 0.35);
+  padding-top: 26px;
+  margin-top: 28px;
+}
+
+/* ───────────────────────────────────────────────
+   Blog
+   ─────────────────────────────────────────────── */
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+.post-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+.post-card-media {
+  display: block;
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+}
+.post-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+.post-card:hover .post-card-media img {
+  transform: scale(1.04);
+}
+.post-card-body {
+  padding: 22px 24px 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+.post-meta {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.post-card h3 {
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+.post-card h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.post-card h3 a:hover {
+  color: var(--gold);
+}
+.post-excerpt {
+  color: var(--muted);
+  font-size: 0.97rem;
+  flex: 1;
+}
+
+.post-narrow {
+  max-width: 760px;
+}
+.post-header {
+  padding: 40px 0 0;
+  background: linear-gradient(180deg, var(--sage-mist), var(--cream) 70%);
+}
+.post-header h1 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  margin-bottom: 0.4em;
+}
+.post-byline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-bottom: 32px;
+}
+.post-cover {
+  max-width: 1080px;
+}
+.post-cover img {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+}
+.post-body {
+  padding-top: 48px;
+  padding-bottom: 32px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #33402f;
+}
+.post-body h2 {
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  margin: 2.2em 0 0.6em;
+}
+.post-body h3 {
+  font-size: 1.45rem;
+  margin: 1.6em 0 0.4em;
+  color: var(--forest);
+}
+.post-lead {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  line-height: 1.4;
+  color: var(--forest-ink);
+}
+.post-figure {
+  margin: 1.4em 0 1.8em;
+}
+.post-figure img {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  border-radius: 18px;
+}
+.post-body .check-list {
+  margin: 0.5em 0 1.4em;
+}
+.post-close {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.45;
+  color: var(--forest);
+  border-left: 3px solid var(--gold);
+  padding: 6px 0 6px 22px;
+  margin: 2em 0;
+}
+.post-refs {
+  margin-top: 3em;
+  padding-top: 2em;
+  border-top: 1px solid var(--line);
+}
+.post-refs h2 {
+  font-size: 1.5rem !important;
+  margin-top: 0 !important;
+}
+.post-refs ol {
+  padding-left: 1.2em;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.post-refs li {
+  margin-bottom: 0.8em;
+}
+.post-note {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--muted);
+  background: var(--sand);
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+.post-author {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+  margin: 8px 0 88px;
+}
+.post-author img {
+  flex-shrink: 0;
+}
+.post-author p {
+  margin-bottom: 0.6em;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.post-author-name {
+  font-family: var(--font-display);
+  font-size: 1.35rem !important;
+  font-weight: 600;
+  color: var(--forest-ink) !important;
+  margin-bottom: 0.2em !important;
+}
+
+@media (max-width: 1060px) {
+  .service-grid-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 900px) {
+  .service-grid-3,
+  .post-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .service-group-title {
+    font-size: 1.6rem;
+  }
+  .meaning-close {
+    font-size: 1.2rem;
+  }
+  .post-header {
+    padding-top: 24px;
+  }
+  .post-cover {
+    padding: 0;
+  }
+  .post-cover img {
+    border-radius: 0;
+  }
+  .post-body {
+    padding-top: 32px;
+    font-size: 1.02rem;
+    line-height: 1.75;
+  }
+  .post-lead {
+    font-size: 1.35rem;
+  }
+  .post-close {
+    font-size: 1.25rem;
+  }
+  .post-author {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 60px;
+  }
+  .post-card h3 {
+    font-size: 1.4rem;
+  }
+}
+
+.meaning:has(.meaning-long)::before {
+  display: none;
+}

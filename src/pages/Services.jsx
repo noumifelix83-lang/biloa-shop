@@ -6,10 +6,49 @@ import { SERVICES, formatPrice } from '../data/catalog.js';
 import { imgSet, usePageMeta } from '../utils.js';
 
 const STEPS = [
-  { title: 'Choose your package', text: 'Pick the level of support that fits your goals, schedule and budget.' },
+  { title: 'Choose your support', text: 'Pick the package or single session that fits your goals, schedule and budget.' },
   { title: 'Check out securely', text: 'Pay online in minutes with a card, Apple Pay or Google Pay.' },
-  { title: 'Schedule your first session', text: 'We’ll email you within 1–2 business days to book your consultation at a time that works for you.' },
+  { title: 'Schedule your first session', text: 'We’ll email you within 1–2 business days to find a time that works for you.' },
 ];
+
+function ServiceCard({ service: s, inCart, onBook }) {
+  const isPackage = s.group === 'package';
+  return (
+    <article id={s.id} className={`service-card${s.featured ? ' featured' : ''}`}>
+      {s.featured && <span className="service-flag">Includes meal planning</span>}
+      {s.duration && <p className="service-duration">{s.duration}</p>}
+      <h3>{s.name}</h3>
+      {s.headline && <p className="service-headline">{s.headline}</p>}
+      <p className="service-price">{formatPrice(s.price)}</p>
+      <p className="service-summary">{s.summary}</p>
+      <p className="service-includes-title">{s.includesTitle || (isPackage ? 'This package includes' : 'What we’ll do together')}</p>
+      <ul className="check-list">
+        {s.includes.map((i) => (
+          <li key={i}>{i}</li>
+        ))}
+      </ul>
+      {s.idealFor && (
+        <p className="service-ideal">
+          <strong>Ideal for:</strong> {s.idealFor}
+        </p>
+      )}
+      <div className="service-actions">
+        {inCart ? (
+          <Link to="/checkout" className="btn btn-primary btn-block">
+            <CheckIcon size={18} /> In your cart — checkout
+          </Link>
+        ) : (
+          <button className="btn btn-primary btn-block" onClick={onBook}>
+            <CalendarIcon size={18} /> {isPackage ? 'Book this package' : 'Book this session'}
+          </button>
+        )}
+        <Link to={`/contact?topic=${encodeURIComponent(s.name)}`} className="btn btn-ghost btn-block">
+          Ask a question first
+        </Link>
+      </div>
+    </article>
+  );
+}
 
 export default function Services() {
   usePageMeta('Wellness Coaching', 'Personalized nutrition education, meal-planning support and holistic wellness coaching with Dr. Paola Biloa Njandja.');
@@ -33,7 +72,7 @@ export default function Services() {
             healthy choices feel manageable, not overwhelming.
           </p>
           <a href="#packages" className="btn btn-gold btn-lg">
-            View packages
+            View services
           </a>
         </div>
       </section>
@@ -41,44 +80,22 @@ export default function Services() {
       <section className="section" id="packages">
         <div className="container">
           <div className="section-head">
-            <p className="eyebrow">Coaching packages</p>
+            <p className="eyebrow">Coaching services</p>
             <h2>Find the support that fits your needs</h2>
           </div>
-          <div className="service-grid">
-            {SERVICES.map((s) => (
-              <article key={s.id} id={s.id} className={`service-card${s.featured ? ' featured' : ''}`}>
-                {s.featured && <span className="service-flag">Includes meal planning</span>}
-                <p className="service-duration">{s.duration}</p>
-                <h3>{s.name}</h3>
-                <p className="service-headline">{s.headline}</p>
-                <p className="service-price">{formatPrice(s.price)}</p>
-                <p className="service-summary">{s.summary}</p>
-                <p className="service-includes-title">{s.includes.length > 4 ? 'This package includes' : 'What we’ll do together'}</p>
-                <ul className="check-list">
-                  {s.includes.map((i) => (
-                    <li key={i}>{i}</li>
-                  ))}
-                </ul>
-                {s.idealFor && (
-                  <p className="service-ideal">
-                    <strong>Ideal for:</strong> {s.idealFor}
-                  </p>
-                )}
-                <div className="service-actions">
-                  {inCart.has(s.id) ? (
-                    <Link to="/checkout" className="btn btn-primary btn-block">
-                      <CheckIcon size={18} /> In your cart — checkout
-                    </Link>
-                  ) : (
-                    <button className="btn btn-primary btn-block" onClick={() => addItem(s.id)}>
-                      <CalendarIcon size={18} /> Book this package
-                    </button>
-                  )}
-                  <Link to={`/contact?topic=${encodeURIComponent(s.name)}`} className="btn btn-ghost btn-block">
-                    Ask a question first
-                  </Link>
-                </div>
-              </article>
+          <h3 className="service-group-title">Packages</h3>
+          <p className="service-group-sub">Ongoing guidance, education, and accountability over several sessions.</p>
+          <div className="service-grid service-grid-3">
+            {SERVICES.filter((s) => s.group === 'package').map((s) => (
+              <ServiceCard key={s.id} service={s} inCart={inCart.has(s.id)} onBook={() => addItem(s.id)} />
+            ))}
+          </div>
+
+          <h3 className="service-group-title" id="sessions">Single sessions</h3>
+          <p className="service-group-sub">A focused, one-time session — a simple way to begin.</p>
+          <div className="service-grid service-grid-3">
+            {SERVICES.filter((s) => s.group === 'session').map((s) => (
+              <ServiceCard key={s.id} service={s} inCart={inCart.has(s.id)} onBook={() => addItem(s.id)} />
             ))}
           </div>
         </div>
@@ -111,11 +128,10 @@ export default function Services() {
             <p className="eyebrow">What you can expect</p>
             <h2>Heard, respected and supported — without judgment</h2>
             <p>
-              I take time to understand your goals, preferences, schedule, culture, budget, and the realities that shape your daily life. My role is
-              to provide education, encouragement, accountability, and practical guidance that helps you make informed wellness choices with greater
-              confidence.
+              We take time to understand your goals, preferences, schedule, culture, budget, and the realities that shape your daily life. Our role
+              is to provide education, encouragement, accountability, and practical guidance that helps you make informed wellness choices with
+              greater confidence.
             </p>
-            <p className="expect-sign">— Dr. Paola Biloa Njandja</p>
             <Link to="/about" className="text-link">
               Meet Dr. Paola →
             </Link>
