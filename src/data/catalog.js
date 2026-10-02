@@ -260,7 +260,7 @@ export const SERVICES = [
     group: 'session',
     name: 'Health and Wellness Coaching',
     price: 8500,
-    duration: 'Single session',
+    duration: '60-minute session',
     summary:
       'Receive personalized encouragement, accountability, and practical support as you work toward your wellness goals.',
     includesTitle: 'Coaching may focus on',
@@ -340,7 +340,7 @@ export const SERVICES = [
     name: 'Holistic Meal Prep Support',
     price: 9500,
     headline: 'Take the stress out of deciding what to eat',
-    duration: 'Single session',
+    duration: '60-minute session',
     summary:
       'Together, we will develop practical meal ideas, organize grocery lists, simplify food preparation, and create balanced routines that reflect your preferences, schedule, budget, and general wellness goals.',
     includes: [
